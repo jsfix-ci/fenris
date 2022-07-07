@@ -50,6 +50,9 @@ export default ({reducer, cachePerUrl, ...config}) => ({url, initialState}) =>
     store: configureStore({
       reducer,
       initialState,
-      history: createMemoryHistory({initialEntries: [url]}),
+      history: /* TODO: JSFIX could not patch the breaking change:
+      Removed relative pathname support in hash history and memory history 
+      Suggested fix: Relative paths are no longer supportet by the hash/memory history, hence we recommend using the entire path name instead. */
+      createMemoryHistory({initialEntries: [url]}),
     })
   })
